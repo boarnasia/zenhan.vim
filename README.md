@@ -30,11 +30,7 @@ return {
     {
         "boarnasia/zenhan.nvim",
         cond = vim.fn.has('wsl') == 1,
-        config = function()
-            require("zenhan").setup({
-                exe = "zenhan.exe",
-            })
-        end,
+        opts = {}
     }
 }
 
