@@ -29,7 +29,7 @@ Make `lua/plugins/zenhan.lua`, and add the following code:
 return {
      "boarnasia/zenhan.nvim",
      config = function()
-       require("zenhan_ime").setup({
+       require("zenhan").setup({
             cond = vim.fn.has("wsl") == 1,
             exe = "zenhan.exe",
         })
