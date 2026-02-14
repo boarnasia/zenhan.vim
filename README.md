@@ -27,14 +27,15 @@ Make `lua/plugins/zenhan.lua`, and add the following code:
 
 ```lua
 return {
-     "boarnasia/zenhan.nvim",
-     config = function()
-       require("zenhan").setup({
-            cond = vim.fn.has("wsl") == 1,
-            exe = "zenhan.exe",
-        })
-     end,
-   }
+    {
+        "boarnasia/zenhan.nvim",
+        cond = vim.fn.has('wsl') == 1,
+        config = function()
+        require("zenhan").setup({
+                exe = "zenhan.exe",
+            })
+        end,
+    }
 }
 
 ```
