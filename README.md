@@ -10,16 +10,6 @@ for on Windows and WSL.
 - C version is here: [Context: https://github.com/iuchim/zenhan]
 - Rust version is: [Context: https://github.com/boarnasia/zenhan/tree/master/rust]
 
-### WSL setting
-
-```config filename="$HOME.wslconfig"
-[interop]
-# **nessesary** for `zenhan.exe` to work in WSL
-# this enables the interop between Windows and WSL, allowing you to run Windows
-# executables from WSL.
-enabled=true
-```
-
 ## How to setup
 
 ### Lazy
