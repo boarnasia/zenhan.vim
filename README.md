@@ -1,23 +1,24 @@
 # zenhan.nvim
 
-It's plugin for nvim on windows or wsl2.
-
-Turn off ime when you leave from insert mode.
-
-According to AI, it originally existed in “delphinus/zenhan.nvim”
-but since it no longer exists, I created it.
+nvim plugin to turn off IME you leave from insert mode,
+for on Windows and WSL.
 
 ## Requirements
 
-- `zenhan.exe`
-
-Original C version was created by [iuchim](https://github.com/iuchim).
-I sincerely appreciate their work and inspiration.  
-I made a Rust version based on their project,  
-as I don't have a C build environment.
+### `zenhan.exe`
 
 - C version is here: [Context: https://github.com/iuchim/zenhan]
-- Rust version is: [Context: https://github.com/boarnasia/zenhan]
+- Rust version is: [Context: https://github.com/boarnasia/zenhan/tree/master/rust]
+
+### WSL setting
+
+```config filename="$HOME.wslconfig"
+[interop]
+# **nessesary** for `zenhan.exe` to work in WSL
+# this enables the interop between Windows and WSL, allowing you to run Windows
+# executables from WSL.
+enabled=true
+```
 
 ## How to setup
 
@@ -29,9 +30,10 @@ Make `lua/plugins/zenhan.lua`, and add the following code:
 return {
     {
         "boarnasia/zenhan.nvim",
-        cond = vim.fn.has('wsl') == 1,
+        cond = function()
+            return vim.fn.has("win32") == 1 or vim.fn.has("wsl") == 1
+        end,
         opts = {}
     }
 }
-
 ```
